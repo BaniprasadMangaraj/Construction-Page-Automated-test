@@ -1,0 +1,138 @@
+package Construct;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Login {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "F:\\Selenium\\chromedriver.exe");
+        WebDriver driver=new ChromeDriver();
+        driver.manage().window().maximize();
+        
+        //Navigate The Construction page 
+        driver.get("https://mockups.ajatus.co.in/construction-system/backend/web/site/login");
+        
+        //Loacting the Construction login page
+        WebElement un=driver.findElement(By.id("loginform-username"));
+        //Enter valid UserName
+        un.sendKeys("narendra.mahto@ajatus.co.in");
+        
+        //Locating Construction Password
+        
+        WebElement ps=driver.findElement(By.id("loginform-password"));
+        // entering Valid Password
+       ps.sendKeys("mkr5htgi");
+       
+       Thread.sleep(3000);
+       
+        //Click Login Button 
+      WebElement log= driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/div[2]/div/button"));
+      
+      log.click();
+      
+      Thread.sleep(2000);
+      
+      //Scrolling The Web Page 
+      Thread.sleep(1000);
+      JavascriptExecutor js = (JavascriptExecutor) driver;
+      js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+      
+      Thread.sleep(2000);
+      // clicking 2
+      WebElement two=driver.findElement(By.xpath("//*[@id=\"w0\"]/ul/li[3]/a"));
+      two.click();
+      
+      Thread.sleep(1000);
+      
+      //Click Customer Option
+     WebElement cu = driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[2]/a"));
+     cu.click();
+     
+     //Click add customer
+     Thread.sleep(1000);
+     WebElement ad=driver.findElement(By.xpath("//*[@id=\"wrapper\"]/div[2]/div[2]/p/a"));
+     ad.click();
+    
+     //Enter name 
+     WebElement name=driver.findElement(By.id("customer-name"));
+     name.sendKeys("Amlan");
+     
+     //Enter Org Name
+     WebElement org=driver.findElement(By.id("customer-org_name"));
+     org.sendKeys("akp org");
+     
+     //Enter Phone no
+    WebElement phone = driver.findElement(By.id("customer-phone_no"));
+    phone.sendKeys("7008463071");
+    
+    //Enter Email id
+    WebElement email=driver.findElement(By.id("customer-email"));
+    email.sendKeys("amlan@gmail.com");
+    
+    //Enter Billing Cycle
+    WebElement bl=driver.findElement(By.id("customer-billing_cycle"));
+    bl.click();
+    
+    //Select Monthly Option
+    Select sel1 = new Select(bl);
+    sel1.selectByVisibleText("Monthly");
+    
+    //Enter Invoice Generation
+    WebElement ig = driver.findElement(By.id("customer-invoice_generation"));
+    ig.click();
+    
+    //Select  Automatic Option
+    Select sel2=new Select(ig);
+    sel2.selectByVisibleText("Automatic");
+    
+    //Enter Credit Period
+    WebElement cp = driver.findElement(By.id("customer-credit_period"));
+    cp.click();
+    
+    //Select 
+    Select sel3 = new Select(cp);
+    sel3.selectByValue("7");
+    
+    //Select Save
+    WebElement save=driver.findElement(By.xpath("//*[@id=\"w0\"]/div[2]/div/div[1]/div/div/button"));
+    save.click();
+    
+    Thread.sleep(2000);
+    //Click Customer Option
+    WebElement cu1 = driver.findElement(By.xpath("//*[@id=\"side-menu\"]/li[2]/a"));
+    cu1.click();
+    
+    Thread.sleep(2000);
+ // clicking 2
+    WebElement twoo=driver.findElement(By.xpath("//*[@id=\"w0\"]/ul/li[3]/a"));
+    twoo.click();
+    
+    //Scrolling The Web Page 
+    Thread.sleep(1000);
+    JavascriptExecutor js1 = (JavascriptExecutor) driver;
+    js1.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+   
+    //View Details
+    Thread.sleep(1000);
+    WebElement view=driver.findElement(By.xpath("//*[@id=\"w0\"]/table/tbody/tr[4]/td[9]/div/a[1]"));
+    view.click();
+    
+    //Delete Data
+    Thread.sleep(1000);
+   // WebElement del=driver.findElement(By.xpath("//*[@id=\"wrapper\"]/div[2]/div[2]/div/a[2]"));
+    //del.click();
+     
+    //Back Option
+    Thread.sleep(2000);
+    WebElement back=driver.findElement(By.xpath("//*[@id=\"wrapper\"]/div[2]/div[2]/div/a[1]"));
+    back.click();
+    
+    
+  	}
+
+}
